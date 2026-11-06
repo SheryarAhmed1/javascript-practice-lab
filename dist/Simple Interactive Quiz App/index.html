@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Interactive Quiz App</title>
+    <link rel="stylesheet" href="../../src/output.css">
+</head>
+
+<body class="bg-emerald-700 font-serif">
+    <main class="flex flex-col h-screen">
+
+        <div class="flex justify-around p-3 bg-blue-500">
+            <img src="../assests/quizicon.png" alt="logo" class="w-12 h-12">
+            <h1 class="text-center font-bold text-white text-2xl p-2">Quiz App</h1>
+        </div>
+
+        <!-- Questions -->
+        <div class="flex items-center justify-center">
+
+            <div id="question-container" class="m-5 flex flex-col h-80 w-80 justify-center bg-white rounded-lg p-5">
+                <button id="result-container    "></button>
+                <!-- <button id="submit">Submit</button> -->
+            </div>
+        </div>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
