@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../src/output.css">
+    <link rel="icon" href="../assests/accordion.png">
+    <title>Interactive Modal / Popup System & FAQ Accordion</title>
+</head>
+
+<body class="bg-gray-200">
+    <main class="h-96">
+        <h1 class="text-center font-serif text-2xl bg-blue-500 text-white p-5">Interactive Modal / Popup System & FAQ Accordion
+        </h1>
+
+        <div class="flex flex-col items-center m-10 ">
+
+            <button id="modalbtn" class="bg-blue-500 py-1 px-2 text-white font-bold rounded-lg m-5">Open Modal</button>
+
+            <div id="box" class="h-48 w-48 rounded-lg overflow-auto hidden shadow-2xl bg-black/50 backdrop-blur-sm">
+                <button id="exitbtn" class="float-right bg-red-600 text-white font-bold px-3 py-1 m-2 rounded-md">X</button>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="flex flex-col items-center">
+        <h2 class="text-center text-4xl m-3 font-bold">Tailwind Accordion</h2>
+        <div id="accordion1" class="border border-2-black w-5xl p-1 m-1 rounded-sm">
+            <div class="flex justify-between">
+                <h2>Question 1</h2>
+                <img src="../assests/arrows.png" alt=">" class="h-5 w-5 mt-1 mr-1">
+            </div>
+            <p id="para1" class="hidden border-t p-2 m-1 rounded-sm">Answer : Lorem ipsum dolor sit amet
+                consectetur adipisicing elit. Labore, obcaecati quae soluta ex
+                optio dignissimos!</p>
+        </div>
+
+        <div id="accordion2" class="border border-2-black w-5xl p-1 m-1 rounded-sm">
+            <div class="flex justify-between">
+                <h2>Question 2</h2>
+                <img src="../assests/arrows.png" alt=">" class="h-5 w-5 mt-1 mr-1">
+            </div>
+            <p id="para2" class="hidden border-t p-2 m-1 rounded-sm">Answer : Lorem ipsum dolor sit amet
+                consectetur adipisicing elit. Labore, obcaecati quae solut ex
+                optio dignissimos!</p>
+        </div>
+
+        <div id="accordion3" class="border border-2-black w-5xl p-1 m-1 rounded-sm">
+            <div class="flex justify-between">
+                <h2>Question 3</h2>
+                <img src="../assests/arrows.png" alt=">" class="h-5 w-5 mt-1 mr-1">
+            </div>
+            <p id="para3" class="hidden p-2 m-1 rounded-sm border-t ">Answer : Lorem ipsum dolor sit amet
+                consectetur adipisicing elit. Labore, obcaecati quae soluta ex
+                optio dignissimos!</p>
+        </div>
+
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

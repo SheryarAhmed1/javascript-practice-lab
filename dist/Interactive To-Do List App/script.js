@@ -48,6 +48,9 @@ addbtn.addEventListener('click', function () {
         container.remove();
         addbtn.textContent = 'Update Task';
     });
+    if (taskInput.value !== li.textContent) {
+        addbtn.textContent = 'Add Task';
+    }
 
     dbtn.addEventListener('click', function () {
         container.remove();
