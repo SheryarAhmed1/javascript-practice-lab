@@ -13,7 +13,17 @@ const quizData = [
         question: "What is the capital of Japan?",
         options: ["Tokyo", "Seoul", "Beijing", "Bangkok"],
         answer: "Tokyo"
-    }
+    },
+    {
+        question: "What is the capital of Brazil?",
+        options: ["Rio de Janeiro", "Brasília", "São Paulo", "Salvador"],
+        answer: "Brasília"
+    },
+    {
+        question: "What is the capital of Canada?",
+        options: ["Toronto", "Vancouver", "Montreal", "Ottawa"],
+        answer: "Ottawa"
+    },
 ];
 
 let currentQuestionIndex = 0;
