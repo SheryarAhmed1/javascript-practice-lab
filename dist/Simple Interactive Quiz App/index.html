@@ -8,23 +8,23 @@
     <link rel="stylesheet" href="../../src/output.css">
 </head>
 
-<body class="bg-emerald-700 font-serif">
-    <main class="flex flex-col h-screen">
+<body class="bg-gradient-to-br from-emerald-600 to-teal-800 font-serif min-h-screen flex flex-col">
 
-        <div class="flex justify-around p-3 bg-blue-500">
-            <img src="../assests/quizicon.png" alt="logo" class="w-12 h-12">
-            <h1 class="text-center font-bold text-white text-2xl p-2">Quiz App</h1>
+    <!-- Header -->
+    <header class="flex items-center justify-between px-6 py-4 bg-blue-600 shadow-md">
+        <div class="flex items-center gap-3">
+            <img src="../assests/quizicon.png" alt="logo" class="w-10 h-10 object-contain">
+            <h1 class="font-bold text-white text-xl tracking-wide">Quiz App</h1>
         </div>
+    </header>
 
-        <!-- Questions -->
-        <div class="flex items-center justify-center">
-
-            <div id="question-container" class="m-5 flex flex-col h-80 w-80 justify-center bg-white rounded-lg p-5">
-                <button id="result-container"></button>
-                <!-- <button id="submit">Submit</button> -->
-            </div>
+    <!-- Main Content Area -->
+    <main class="flex-1 flex items-center justify-center p-4">
+        
+        <!-- Question Container -->
+        <div id="question-container" class="w-full max-w-lg bg-white rounded-2xl shadow-2xl p-6 md:p-8 flex flex-col transition-all">
+            <!-- JavaScript dynamically injects content here -->
         </div>
-
     </main>
 
     <script src="script.js"></script>

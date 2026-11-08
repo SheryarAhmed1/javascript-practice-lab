@@ -31,18 +31,25 @@ let score = 0;
 let selectedOption = '';
 
 let questionContainer = document.querySelector('#question-container');
+
+// Container par thori common styling ensure kar rahe hain
+questionContainer.className = 'bg-white shadow-xl rounded-2xl p-8 w-full max-w-lg mx-auto flex flex-col transition-all';
+
 function showQuestion() {
-    // 1. Clear container every time so that old questions and options rae removed
     questionContainer.innerHTML = '';
 
+    // --- Quiz Completed Screen ---
     if (currentQuestionIndex >= quizData.length) {
         questionContainer.innerHTML = `
-            <h2 class="text-xl font-bold mb-3 text-center">Quiz Completed!</h2>
-            <p class="text-center mb-4">Your Score: ${score} / ${quizData.length}</p>
-            <button id="restart-btn" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg w-full">Restart Quiz</button>
+            <div class="text-center py-6">
+                <h2 class="text-2xl font-extrabold text-gray-800 mb-2">Quiz Completed! 🎉</h2>
+                <p class="text-gray-600 mb-6 text-lg">Your Final Score: <span class="font-bold text-emerald-600">${score}</span> / ${quizData.length}</p>
+                <button id="restart-btn" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-xl shadow-md transition-all w-full cursor-pointer">
+                    Play Again
+                </button>
+            </div>
         `;
 
-        // Restart button logic
         document.querySelector('#restart-btn').addEventListener('click', function () {
             currentQuestionIndex = 0;
             score = 0;
@@ -52,39 +59,50 @@ function showQuestion() {
         return;
     }
 
-    // 2. Creating Question element
-    let qElement = document.createElement('p');
-    qElement.className = 'font-bold mb-4 text-gray-800';
+    // --- Question Number & Text ---
+    let progressText = document.createElement('span');
+    progressText.className = 'text-xs font-semibold uppercase tracking-wider text-indigo-500 mb-1';
+    progressText.textContent = `Question ${currentQuestionIndex + 1} of ${quizData.length}`;
+    questionContainer.appendChild(progressText);
+
+    let qElement = document.createElement('h3');
+    qElement.className = 'text-xl font-bold text-gray-900 mb-6';
     qElement.textContent = quizData[currentQuestionIndex].question;
     questionContainer.appendChild(qElement);
 
-    // 3.Displaying options using loop
+    // --- Options Wrapper ---
+    let optionsWrapper = document.createElement('div');
+    optionsWrapper.className = 'flex flex-col gap-3 mb-6';
+
     quizData[currentQuestionIndex].options.forEach(function (optText) {
         let opt = document.createElement('div');
-        opt.className = 'border p-2 bg-gray-100 rounded-md mb-2 cursor-pointer hover:bg-gray-200 text-center transition-all';
+        // Behtareen hover aur border styling
+        opt.className = 'border-2 border-gray-200 p-3.5 rounded-xl bg-gray-50 font-medium text-gray-700 cursor-pointer hover:bg-indigo-50 hover:border-indigo-300 transition-all shadow-sm';
         opt.textContent = optText;
 
-        //When user click on any option
         opt.addEventListener('click', function () {
-            document.querySelectorAll('#question-container div').forEach(function (item) {
-                item.classList.remove('bg-blue-200', 'border-blue-500');
+            // Purane selected options se highlight hata dein
+            optionsWrapper.querySelectorAll('div').forEach(function (item) {
+                item.classList.remove('bg-indigo-100', 'border-indigo-600', 'text-indigo-900', 'shadow-md');
+                item.classList.add('bg-gray-50', 'border-gray-200', 'text-gray-700');
             });
 
-            opt.classList.add('bg-blue-200', 'border-blue-500');
+            // Naye clicked option ko stylish highlight dein
+            opt.classList.remove('bg-gray-50', 'border-gray-200', 'text-gray-700');
+            opt.classList.add('bg-indigo-100', 'border-indigo-600', 'text-indigo-900', 'shadow-md');
             selectedOption = optText;
         });
 
-        questionContainer.appendChild(opt);
+        optionsWrapper.appendChild(opt);
     });
 
-    // 4.Creating Submit Button
+    questionContainer.appendChild(optionsWrapper);
+
+    // --- Submit Button ---
     let submitBtn = document.createElement('button');
     submitBtn.textContent = 'Submit Answer';
-    submitBtn.className = 'mt-4 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2 px-4 rounded-lg transition-all';
+    submitBtn.className = 'bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 px-6 rounded-xl shadow-md transition-all cursor-pointer w-full text-center';
 
-    questionContainer.appendChild(submitBtn);
-
-    // 5. Submit Button Click Event
     submitBtn.addEventListener('click', function () {
         if (selectedOption === '') {
             alert('Please select any option before submitting!');
@@ -101,5 +119,8 @@ function showQuestion() {
         selectedOption = '';
         showQuestion();
     });
+
+    questionContainer.appendChild(submitBtn);
 }
+
 showQuestion();
