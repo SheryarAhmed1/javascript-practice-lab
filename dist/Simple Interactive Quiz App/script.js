@@ -32,7 +32,6 @@ let selectedOption = '';
 
 let questionContainer = document.querySelector('#question-container');
 
-// Container par thori common styling ensure kar rahe hain
 questionContainer.className = 'bg-white shadow-xl rounded-2xl p-8 w-full max-w-lg mx-auto flex flex-col transition-all';
 
 function showQuestion() {
@@ -76,18 +75,15 @@ function showQuestion() {
 
     quizData[currentQuestionIndex].options.forEach(function (optText) {
         let opt = document.createElement('div');
-        // Behtareen hover aur border styling
         opt.className = 'border-2 border-gray-200 p-3.5 rounded-xl bg-gray-50 font-medium text-gray-700 cursor-pointer hover:bg-indigo-50 hover:border-indigo-300 transition-all shadow-sm';
         opt.textContent = optText;
 
         opt.addEventListener('click', function () {
-            // Purane selected options se highlight hata dein
             optionsWrapper.querySelectorAll('div').forEach(function (item) {
                 item.classList.remove('bg-indigo-100', 'border-indigo-600', 'text-indigo-900', 'shadow-md');
                 item.classList.add('bg-gray-50', 'border-gray-200', 'text-gray-700');
             });
 
-            // Naye clicked option ko stylish highlight dein
             opt.classList.remove('bg-gray-50', 'border-gray-200', 'text-gray-700');
             opt.classList.add('bg-indigo-100', 'border-indigo-600', 'text-indigo-900', 'shadow-md');
             selectedOption = optText;
