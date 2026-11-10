@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Expense Tracker</title>
+    <link rel="icon" href="../assests/project5.png">
+    <link rel="stylesheet" href="../../src/output.css">
+</head>
+
+<body class="flex justify-center items-center">
+    <div class=" bg-gray-300 w-lg h-96 p-5 rounded-2xl mt-10">
+
+        <h1 class="text-center font-serif p-5 text-xl">Expense Tracker</h1>
+        <h2 class="font-serif text-center text-lg my-3">Total Expense: Rs. <span id="total-amount">0</span></h2>
+        <div class="flex justify-around">
+            <input id="input1" class="border rounded-md px-1" type="text" placeholder="eg.. Lunch">
+            <input id="input2" class="border rounded-md px-1" type="number" placeholder="Amount">
+        </div>
+        <div class="flex  justify-center">
+            <button id="addbtn" class="bg-blue-500 text-white py-1 px-2 font-bold rounded-lg mt-5">Add Expense</button>
+        </div>
+
+        <div id="itemList"></div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
