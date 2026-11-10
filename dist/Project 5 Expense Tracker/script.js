@@ -61,4 +61,4 @@ function calculateTotal() {
     totalDisplay.textContent = sum;
 }
 
-btn.addEventListener('click', track);
+btn.addEventListener('click', track)
